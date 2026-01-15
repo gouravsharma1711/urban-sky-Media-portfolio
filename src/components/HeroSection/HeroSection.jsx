@@ -43,12 +43,12 @@ function HeroSection() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className='flex flex-col sm:flex-row gap-4 mt-10 justify-center'
+                        className='flex flex-col sm:flex-row gap-6 mt-10 justify-center'
                     >
-                        <button className='px-8 py-4 rounded-full bg-[#4B1F6F]  text-white font-bold text-base hover:bg-primary-400 transition-all duration-300 shadow-[#a448f0] hover:shadow-[0_0_30px_rgba(210,244,72,0.5)]'>
+                        <button className='px-10 py-4 rounded-full bg-[#4B1F6F] text-white font-bold text-lg hover:bg-[#3b1856] transition-all duration-300 shadow-[0_10px_20px_rgba(75,31,111,0.3)] hover:shadow-[0_15px_30px_rgba(75,31,111,0.4)] hover:-translate-y-1 transform'>
                             Get Started
                         </button>
-                        <button className='px-8 py-4 rounded-full border border-white/20 backdrop-blur-md text-white font-semibold text-base hover:bg-white/10 transition-all duration-300'>
+                        <button className='px-10 py-4 rounded-full border-2 border-white/30 backdrop-blur-md text-white font-bold text-lg hover:bg-white hover:text-slate-950 transition-all duration-300 hover:-translate-y-1 transform'>
                             View Portfolio
                         </button>
                     </motion.div>

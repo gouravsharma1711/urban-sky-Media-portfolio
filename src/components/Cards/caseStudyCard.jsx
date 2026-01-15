@@ -11,7 +11,7 @@ export default function PerspectiveCard({
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className="group relative w-full bg-white overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100"
+      className="group relative w-full bg-white overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 will-change-transform transform-gpu"
     >
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden">

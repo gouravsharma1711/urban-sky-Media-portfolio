@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/.zencoder/*
+/.zenflow/*
 /.pnp
 .pnp.*
 .yarn/*
@@ -9,6 +11,7 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+
 
 # testing
 /coverage

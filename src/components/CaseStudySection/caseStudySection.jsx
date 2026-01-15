@@ -40,6 +40,11 @@ const caseStudies = [
 ];
 
 function CaseStudySection() {
+
+  const buttonHandler=()=>{
+    window.location.href="/case-studies";
+  }
+
   return (
     <section id="projects" className="bg-slate-50 py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -55,17 +60,20 @@ function CaseStudySection() {
               Discover how we've helped industry leaders transform their digital landscape through innovation and strategic design.
             </p>
           </div>
-          <button className="hidden md:block px-8 py-3 rounded-full border border-gray-200 bg-white text-gray-900 font-bold hover:border-primary-500 hover:text-primary-600 transition-all">
+          <button className="hidden md:block px-8 py-3 rounded-full border border-gray-200 bg-white text-gray-900 font-bold hover:border-primary-500 hover:text-primary-600 transition-all" onClick={buttonHandler}>
             View All Projects
           </button>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ 
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1] // Custom cubic-bezier for smoother feel
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 will-change-transform transform-gpu"
         >
           {caseStudies.map((data, index) => (
             <PerspectiveCard
