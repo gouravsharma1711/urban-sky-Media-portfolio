@@ -90,19 +90,13 @@ const OverlayCopy = ({ subheading, heading }) => {
 
 const ContentSection = ({ title, description, buttonText = "Learn More" }) => (
     <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
-        <h2 className="col-span-1 text-4xl font-bold md:col-span-4 tracking-tight">
+        <h2 className="col-span-1 text-4xl text-white font-bold md:col-span-4 tracking-tight">
             {title}
         </h2>
         <div className="col-span-1 md:col-span-8">
-            <p className="mb-8 text-xl text-neutral-600 md:text-2xl leading-relaxed">
+            <p className="mb-8 text-xl text-white md:text-2xl leading-relaxed">
                 {description}
             </p>
-            <Button 
-              variant="outline" 
-              className="rounded-full px-8 py-6 text-lg border-2 border-[#4B1F6F] text-[#4B1F6F] hover:bg-[#4B1F6F] hover:text-white transition-all duration-300"
-            >
-              {buttonText} <FiArrowUpRight className="ml-2" />
-            </Button>
         </div>
     </div>
 );

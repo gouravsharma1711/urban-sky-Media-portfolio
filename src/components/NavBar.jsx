@@ -17,12 +17,16 @@ function NavBar() {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '/' },
+        { name: 'Home', href: '/#' },
         { name: 'About', href: '/#about' },
-        { name: 'Services', href: '#' },
-        { name: 'Case Studies', href: '/#projects' },
-        { name: 'Contact', href: '#' },
+        { name: 'Case Studies', href: '/#case-study' },
+        { name: 'Team', href: '/#team' },
+        { name: 'Contact', href: '/#contacts' },
     ];
+
+    const clickHandler = () =>{
+        window.location.href='/why-urban-sky-media';
+    }
 
     return (
         <nav 
@@ -34,7 +38,7 @@ function NavBar() {
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
-                <a href="#" className="flex items-center gap-2 group">
+                <a href="/#home" className="flex items-center gap-2 group">
                     <div className="w-10 h-10  rounded-lg flex items-center justify-center group-hover:rotate-6 transition-transform">
                         <img src='/images/logo.png'></img>
                     </div>
@@ -61,8 +65,11 @@ function NavBar() {
                         </li>
                     ))}
                     <li>
-                        <button className="px-6 py-2.5 rounded-full text-white bg-[#4B1F6F] text-sm font-bold hover:bg-[#3b1856] transition-all shadow-[0_4px_14px_0_rgba(75,31,111,0.39)] hover:shadow-[0_6px_20px_rgba(75,31,111,0.23)] hover:-translate-y-0.5">
-                            Get in Touch
+                        <button 
+                            className="px-6 py-2.5 rounded-full text-white bg-[#4B1F6F] text-sm font-bold hover:bg-[#3b1856] transition-all shadow-[0_4px_14px_0_rgba(75,31,111,0.39)] hover:shadow-[0_6px_20px_rgba(75,31,111,0.23)] hover:-translate-y-0.5"
+                            onClick={clickHandler}
+                        >
+                            Why Us?
                         </button>
                     </li>
                 </ul>

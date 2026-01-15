@@ -21,42 +21,42 @@ function WhyUrbanSky() {
           <h1 className="text-5xl md:text-[12rem] font-bold tracking-tighter leading-none mb-6 text-white">
             WHY <span className="text-[#4B1F6F]">URBAN SKY</span>?
           </h1>
-          <p className="text-lg md:text-2xl text-neutral-500 max-w-3xl mx-auto uppercase tracking-[0.2em] font-medium">
-            Redefining the horizon of digital media & strategic growth.
+          <p className="text-lg md:text-2xl text-white max-w-3xl mx-auto uppercase tracking-[0.2em] font-medium">
+            Redefining the horizon of Digital Engineering and Full Fledge marketing 
           </p>
         </motion.div>
       </section>
 
       <TextParallaxContent
         imgUrl="/images/img1.jpg"
-        subheading="Growth"
+        subheading="DIGITAL Engineering "
         heading="Turn Attention Into Revenue."
       >
         <ContentSection
-          title="Performance-Driven Marketing"
-          description="Urban Sky Media helps brands move beyond visibility and into measurable growth. Through influencer marketing, content strategy, and paid media, we convert audience attention into real business outcomes."
+          title="Digital Engineering Services"
+          description="Urban Sky Media builds custom web/mobile apps (React/Node.js/MERN), CRM/ERP systems with real-time analytics, production workflows (BOMs, yield tracking), API integrations, inventory automation, and VFX/CGI pipelines that drive 30-50% operational efficiency gains and seamless marketing execution."
         />
       </TextParallaxContent>
 
       <TextParallaxContent
         imgUrl="/images/brandBuilding.jpg"
-        subheading="Branding"
-        heading="Build a Brand People Trust."
+        subheading="Lifetime Growth"
+        heading="Build Growth That Never Slows Down"
       >
         <ContentSection
-          title="Strategic Brand Building"
-          description="In competitive markets, brands don’t win by being louder — they win by being clearer. We design brand narratives, creator partnerships, and digital presence that position you as the category leader."
+          title="Lifetime Growth"
+          description="Urban Sky Media builds sustainable revenue systems that compound over time—through customer retention strategies, CRM automation, predictive analytics, repeat purchase funnels, loyalty programs, and performance marketing that deliver 3-5x LTV while reducing acquisition costs by 25-40%."
         />
       </TextParallaxContent>
 
       <TextParallaxContent
         imgUrl="/images/img2.jpg"
-        subheading="Influence"
-        heading="Scale Through Authentic Voices."
+        subheading="Full Fledge Marketing "
+        heading="We Influence People for you "
       >
         <ContentSection
-          title="Influencer-Led Growth"
-          description="We connect your brand with the right creators across Instagram, YouTube, and emerging platforms. Our data-driven influencer campaigns generate trust, engagement, and high-ROI customer acquisition."
+          title="Full Fledge Marketing"
+          description="Urban Sky Media delivers complete marketing execution—from AI-powered SEO/ads and content strategy to influencer campaigns, esports activations, performance funnels, social media management, and creative production (VFX/CGI) that drive consistent revenue growth across acquisition, activation, retention, and monetization."
         />
       </TextParallaxContent>
 

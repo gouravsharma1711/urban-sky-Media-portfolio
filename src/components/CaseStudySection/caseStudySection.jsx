@@ -46,7 +46,7 @@ function CaseStudySection() {
   }
 
   return (
-    <section id="projects" className="bg-slate-50 py-24 sm:py-32">
+    <section id="case-study" className="bg-slate-50 py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">

@@ -3,8 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-
-
 function About() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -18,15 +16,18 @@ function About() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: "easeOut" } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
-    <section id="about" className="w-full bg-white py-24 sm:py-32 overflow-hidden">
+    <section
+      id="about"
+      className="w-full bg-white py-24 sm:py-32 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -42,10 +43,19 @@ function About() {
               Our Story
             </h2>
             <p className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:leading-[1.1]">
-              Crafting Digital <span className="text-[#4B1F6F]">Excellence</span>
+              Crafting Full-Funnel{" "}
+              <span className="text-[#4B1F6F]">Excellence</span>
             </p>
             <p className="mt-8 text-xl leading-relaxed text-gray-600 font-light">
-              Urban Sky Media is a dynamic force in the digital landscape, where innovation meets strategic storytelling. We don&apos;t just create content; we build digital legacies.
+              Urban Sky Media is a dynamic digital transformation company
+              empowering brands from development and production management to
+              marketing and sales through esports events, influencer networks,
+              AI-powered campaigns, custom technology, and performance marketing
+              across 100+ geographies.
+              <br />
+              <br />
+              We don't just execute; we build integrated growth ecosystems that
+              deliver measurable results for founders scaling globally.
             </p>
           </motion.div>
 
@@ -54,48 +64,133 @@ function About() {
             <div className="relative pl-14 group">
               <dt className="inline font-bold text-gray-900 text-xl">
                 <div className="absolute left-0 top-0 h-10 w-10 flex items-center justify-center rounded-xl bg-[#4B1F6F]/5 text-[#4B1F6F] group-hover:bg-[#4B1F6F] group-hover:text-white transition-all duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16 18l6-6-6-6M8 6l-6 6 6 6M14 4l-4 16"
+                    />
                   </svg>
                 </div>
-                Excellence in Code.
+                Development
               </dt>
               <dd className="block mt-2 text-gray-600 leading-relaxed font-light">
-                We transform complex challenges into elegant digital experiences through clean architecture and user-centric design principles.
+                Custom web/apps, CRMs, ERPs, dashboards built for performance
+                and scale
               </dd>
             </div>
 
             <div className="relative pl-14 group">
               <dt className="inline font-bold text-gray-900 text-xl">
                 <div className="absolute left-0 top-0 h-10 w-10 flex items-center justify-center rounded-xl bg-[#4B1F6F]/5 text-[#4B1F6F] group-hover:bg-[#4B1F6F] group-hover:text-white transition-all duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 10h11M9 21V3m12 8h-6m6 4h-6m6 4h-6"
+                    />
                   </svg>
                 </div>
-                Modern Approach.
+                Production Management
               </dt>
               <dd className="block mt-2 text-gray-600 leading-relaxed font-light">
-                Leveraging cutting-edge technologies and performance-first methodologies to ensure your brand stays ahead of the curve.
+                Planning, workflows, quality control, BOMs, yield tracking, ERP
+                optimization
               </dd>
             </div>
 
             <div className="relative pl-14 group">
               <dt className="inline font-bold text-gray-900 text-xl">
                 <div className="absolute left-0 top-0 h-10 w-10 flex items-center justify-center rounded-xl bg-[#4B1F6F]/5 text-[#4B1F6F] group-hover:bg-[#4B1F6F] group-hover:text-white transition-all duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 019.918 5.84m-15.482 0a50.503 50.503 0 003.828 7.59m-5.07-7.59L12 10.5l8.59-4.814a50.503 50.503 0 00-3.828 7.59m0 0a52.284 52.284 0 01-5.69 1.256 52.284 52.284 0 01-5.69-1.256m11.38 0a50.503 50.503 0 00-3.828-7.59" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16 8V4H8v4H4v4a4 4 0 004 4h8a4 4 0 004-4V8h-4zM8 20h8"
+                    />
                   </svg>
                 </div>
-                Continuous Growth.
+                Esports & Influencer Campaigns
               </dt>
               <dd className="block mt-2 text-gray-600 leading-relaxed font-light">
-                Dedicated to ongoing evolution and data-driven insights that translate into measurable success for our partners.
+                400%+ ROI through tournaments, creator networks, live
+                activations
+              </dd>
+            </div>
+            <div className="relative pl-14 group">
+              <dt className="inline font-bold text-gray-900 text-xl">
+                <div className="absolute left-0 top-0 h-10 w-10 flex items-center justify-center rounded-xl bg-[#4B1F6F]/5 text-[#4B1F6F] group-hover:bg-[#4B1F6F] group-hover:text-white transition-all duration-300">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 17l6-6 4 4 8-8M14 7h7v7"
+                    />
+                  </svg>
+                </div>
+                Marketing
+              </dt>
+              <dd className="block mt-2 text-gray-600 leading-relaxed font-light">
+                AI-powered SEO/ads, content strategy, influencer campaigns,
+                performance optimization
+              </dd>
+            </div>
+            <div className="relative pl-14 group">
+              <dt className="inline font-bold text-gray-900 text-xl">
+                <div className="absolute left-0 top-0 h-10 w-10 flex items-center justify-center rounded-xl bg-[#4B1F6F]/5 text-[#4B1F6F] group-hover:bg-[#4B1F6F] group-hover:text-white transition-all duration-300">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 3v18m9-9H3M16.5 7.5a8 8 0 11-9 9 8 8 0 019-9z"
+                    />
+                  </svg>
+                </div>
+                End-to-End Growth
+              </dt>
+              <dd className="block mt-2 text-gray-600 leading-relaxed font-light">
+                From strategy to execution across inventory, VFX/CGI, and 100+
+                geographies
               </dd>
             </div>
           </motion.div>
         </motion.div>
       </div>
-      
     </section>
   );
 }

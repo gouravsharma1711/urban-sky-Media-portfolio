@@ -6,7 +6,7 @@ import FloatingLines from './FloatingLines.jsx';
 
 function HeroSection() {
     return (
-        <section className='relative h-[700px] lg:h-screen min-h-[600px] overflow-hidden bg-slate-950'>
+        <section className='relative h-[700px] lg:h-screen min-h-[600px] overflow-hidden bg-slate-950' id='home'>
             <div className='absolute inset-0 z-0 opacity-60' >
                 <FloatingLines 
                     enabledWaves={['top', 'middle', 'bottom']}
@@ -36,7 +36,7 @@ function HeroSection() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className='text-xl sm:text-2xl md:text-3xl font-medium text-gray-300 mt-4'
                     >
-                        The Premier Platform For Strategic Marketing
+                        The Global Transformation Company
                     </motion.p>
 
                     <motion.div 
@@ -45,12 +45,12 @@ function HeroSection() {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className='flex flex-col sm:flex-row gap-6 mt-10 justify-center'
                     >
-                        <button className='px-10 py-4 rounded-full bg-[#4B1F6F] text-white font-bold text-lg hover:bg-[#3b1856] transition-all duration-300 shadow-[0_10px_20px_rgba(75,31,111,0.3)] hover:shadow-[0_15px_30px_rgba(75,31,111,0.4)] hover:-translate-y-1 transform'>
+                        <a className='px-10 py-4 rounded-full bg-[#4B1F6F] text-white font-bold text-lg hover:bg-[#3b1856] transition-all duration-300 shadow-[0_10px_20px_rgba(75,31,111,0.3)] hover:shadow-[0_15px_30px_rgba(75,31,111,0.4)] hover:-translate-y-1 transform' href='#contacts'>
                             Get Started
-                        </button>
-                        <button className='px-10 py-4 rounded-full border-2 border-white/30 backdrop-blur-md text-white font-bold text-lg hover:bg-white hover:text-slate-950 transition-all duration-300 hover:-translate-y-1 transform'>
+                        </a>
+                        <a className='px-10 py-4 rounded-full border-2 border-white/30 backdrop-blur-md text-white font-bold text-lg hover:bg-white hover:text-slate-950 transition-all duration-300 hover:-translate-y-1 transform' href='#case-study'>
                             View Portfolio
-                        </button>
+                        </a>
                     </motion.div>
 
                     <motion.p 
@@ -59,7 +59,7 @@ function HeroSection() {
                         transition={{ duration: 1, delay: 0.6 }}
                         className='max-w-2xl mx-auto mt-10 text-sm md:text-base leading-relaxed text-gray-400 font-light'
                     >
-                        Empowering brands through data-driven creativity and cutting-edge digital solutions. We don&apos;t just follow trends; we set them.
+                        Empowering brands from development and production management to marketing and sales.
                     </motion.p>
                 </motion.div>
             </div>

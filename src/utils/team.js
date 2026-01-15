@@ -22,7 +22,7 @@ const team = [
     id: "sd255sdffada45asdg57",
     name: "Varun Singh",
     role: "CTO",
-    image: "/images/profile.png",
+    image: "/images/varun2.png",
     description:
       "As CTO, Varun Singh combines technical acumen with a passion for creative technology. From mastering web development and cybersecurity to exploring immersive game design in Unreal Engine, Varun leads Urbansky’s technological vision. His diverse expertise in tech and music production fosters a unique, multidisciplinary approach to building next-generation digital experiences.",
     socialLinks: [

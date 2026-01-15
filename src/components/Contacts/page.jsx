@@ -31,7 +31,7 @@ const socials = [
   {
   idx: 2,
   name: "X.Com",
-  href: "https://twitter.com/urbansky_media",
+  href: "https://x.com/urbanskymedia",
   Icon: XIcon,
 },
 {
@@ -43,7 +43,7 @@ const socials = [
 {
   idx: 4,
   name: "Facebook",
-  href: "https://www.facebook.com",
+  href: "https://www.facebook.com/profile.php?id=61586565003957",
   Icon: Facebook,
 },
 ];
@@ -52,7 +52,7 @@ const socials = [
 function Page() {
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-purple-50 to-white">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-purple-50 to-white" id='contacts'>
       <div className="animate-fade-in-up text-center mb-8 will-change-transform transform-gpu">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-[#4B1F6F] tracking-tight">
           Contact Us
