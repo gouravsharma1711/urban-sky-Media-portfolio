@@ -5,8 +5,8 @@ export default function PerspectiveCard({
   image,
   alt,
   title,
-  type,
-  description
+  industry,
+  summarySection
 }) {
   return (
     <motion.div
@@ -28,24 +28,24 @@ export default function PerspectiveCard({
       {/* Content */}
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
-          {type && (
+          {industry && (
             <span className="px-3 py-1 text-[10px] font-bold tracking-widest text-white uppercase bg-[#4B1F6F] rounded-full">
-              {type}
+              {industry}
             </span>
           )}
         </div>
 
-        <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+        <h3 className="text-md font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
           {title}
         </h3>
 
         <p className="mt-3 text-sm text-gray-600 line-clamp-2">
-          {description}
+          {summarySection.content[0]}
         </p>
 
         <div className="mt-6 flex items-center text-sm font-bold text-gray-900 group-hover:gap-3 transition-all">
           View Case Study
-          <span className="ml-2 transition-transform group-hover:translate-x-1 text-[#4B1F6F">→</span>
+          <span className="ml-2 transition-transform group-hover:translate-x-1 text-[#4B1F6F]">→</span>
         </div>
       </div>
     </motion.div>

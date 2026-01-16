@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +20,7 @@ function NavBar() {
     const navLinks = [
         { name: 'Home', href: '/#' },
         { name: 'About', href: '/#about' },
-        { name: 'Case Studies', href: '/#case-study' },
+        { name: 'Case Studies', href: '/case-studies' },
         { name: 'Team', href: '/#team' },
         { name: 'Contact', href: '/#contacts' },
     ];
@@ -40,7 +41,7 @@ function NavBar() {
                 {/* Logo */}
                 <a href="/#home" className="flex items-center gap-2 group">
                     <div className="w-10 h-10  rounded-lg flex items-center justify-center group-hover:rotate-6 transition-transform">
-                        <img src='/images/logo.png'></img>
+                        <img src='/images/logo.png' className='w-[90%] h-[90%]' ></img>
                     </div>
                     <span className={`text-xl font-bold tracking-tight transition-colors ${
                         isScrolled ? 'text-[#4B1F6F]' : 'text-white'
@@ -76,7 +77,7 @@ function NavBar() {
 
                 {/* Mobile Menu Toggle */}
                 <button 
-                    className="md:hidden mt-7 p-2 text-gray-500"
+                    className="md:hidden mt-7 p-2  text-gray-500"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? (
@@ -94,15 +95,15 @@ function NavBar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
+                        className="md:hidden overflow-hidden"
                     >
-                        <div className="flex flex-col p-6 gap-4">
+                        <div className="flex flex-col p-6 gap-4  bg-[#02050F]">
                             {navLinks.map((link) => (
                                 <a 
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-lg font-medium text-gray-600 hover:text-[#7e44ad] transition-colors"
+                                    className="text-lg font-medium text-white hover:text-[#7e44ad] transition-colors"
                                 >
                                     {link.name}
                                 </a>

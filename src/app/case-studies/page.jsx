@@ -1,213 +1,152 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import PerspectiveCard from '@/components/Cards/caseStudyCard.jsx';
-import LightPillar from '@/components/LightPillar';
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import PerspectiveCard from "@/components/Cards/caseStudyCard.jsx";
+import caseStudy from "@/utils/case-study";
+import PageLoader from "@/components/pageLoader/PageLoader";
 
-const caseStudies = [
-  {
-    image: "/images/img1.jpg",
-    type: "Digital Strategy",
-    alt: "digitalStrategy",
-    title: "Global Brand Expansion",
-    description: "Successfully scaled a tech startup's digital presence across 12 countries, resulting in a 300% increase in organic traffic."
-  },
-  {
-    image: "/images/img2.jpg",
-    type: "UI/UX Design",
-    alt: "uiuxDesign",
-    title: "Eco-Friendly Marketplace",
-    description: "Designed and developed a seamless e-commerce experience focused on sustainability and user conversion optimization."
-  },
-  {
-    image: "/images/img3.jpg",
-    type: "Web Development",
-    alt: "webDev",
-    title: "SaaS Performance Boost",
-    description: "Refactored a complex enterprise dashboard, improving load times by 60% and enhancing overall user satisfaction."
-  },
-  {
-    image: "/images/img2.jpg",
-    type: "Marketing",
-    alt: "marketing",
-    title: "Viral Campaign ROI",
-    description: "Executed a cross-platform social media campaign that generated over 1M impressions and 5x return on ad spend."
-  },
-  {
-    image: "/images/img1.jpg",
-    type: "Brand Identity",
-    alt: "brandIdentity",
-    title: "Artisanal Coffee Rebrand",
-    description: "Revitalized a legacy coffee brand with a modern visual identity, appealing to a younger demographic and increasing sales by 45%."
-  },
-  {
-    image: "/images/img3.jpg",
-    type: "Mobile App",
-    alt: "mobileApp",
-    title: "Fitness Tracker Proooooooo",
-    description: "Developed a high-performance fitness app with real-time biometric tracking and social community features."
-  },
-  {
-    image: "/images/img2.jpg",
-    type: "SEO Optimization",
-    alt: "seo",
-    title: "Real Estate Portal Growth",
-    description: "Implemented a comprehensive SEO strategy that propelled a regional real estate portal to the first page of search results."
-  },
-  {
-    image: "/images/img1.jpg",
-    type: "Content Strategy",
-    alt: "contentStrategy",
-    title: "B2B Tech Thought Leadership",
-    description: "Curated and distributed high-value content that established a B2B SaaS company as an industry authority."
-  }
+const images = [
+  "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg",
+  "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg",
+  "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+  "https://images.pexels.com/photos/3182765/pexels-photo-3182765.jpeg",
+  "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg",
 ];
 
 function CaseStudiesPage() {
+  const [loading, setLoading] = useState(true);
+  const [index, setIndex] = useState(0);
+
+  const clickHandler = () => {
+    window.location.href = "/#contacts";
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  if (loading) return <PageLoader />;
+
   return (
-    <main className="min-h-screen bg-slate-50">
-      
-      {/* Hero Section */}
-      <section className="relative min-h-screen pt-25 bg-[#0a0a0a] overflow-hidden flex items-center">
+    <main className="min-h-screen bg-[#0a0a0a]">
+      {/* HERO SECTION - KINETIC CINEMATIC SLIDER */}
+      <section className="relative h-screen overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url(${images[index]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {/* Overlay Gradients */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/40 to-[#0a0a0a]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0a_90%)]" />
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-  {/* Soft brand glow */}
-  <div className="absolute inset-0">
-    <div className="absolute -top-1/3 -left-1/4 w-[60rem] h-[60rem] bg-[#4B1F6F]/25 blur-[180px]" />
-    <div className="absolute -bottom-1/3 -right-1/4 w-[60rem] h-[60rem] bg-[#9d5cd1]/20 blur-[180px]" />
-  </div>
+        {/* HERO CONTENT */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="flex flex-col items-center"
+          >
+            <motion.span
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="inline-block mb-8 px-6 py-2 text-[10px] font-black tracking-[0.4em] uppercase text-[#9d5cd1] border border-[#9d5cd1]/30 rounded-full bg-[#9d5cd1]/5 backdrop-blur-md"
+            >
+              Portfolio & Success Stories
+            </motion.span>
 
-  <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <h1 className="max-w-5xl text-5xl md:text-8xl font-extrabold tracking-tight leading-[0.95] text-white">
+              Brands don&apos;t grow.
+              <br />
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#9D5CD1] to-[#4B1F6F]">
+                They scale exponentially.
+              </span>
+            </h1>
 
-    {/* LEFT: Story */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      className="text-center lg:text-left"
-    >
-      <span className="inline-block mb-6 px-4 py-2 text-xs tracking-widest uppercase text-[#9d5cd1] border border-[#4B1F6F]/40 rounded-full bg-[#4B1F6F]/10">
-        Client Success Stories
-      </span>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="mt-12 max-w-2xl text-lg text-gray-400 font-medium leading-relaxed"
+            >
+              Every custom app we engineer, every CRM we automate, every esports
+              event we orchestrate, every influencer campaign we ignite, every
+              lifetime value system we architect crafts unbreakable growth
+              infrastructure—from digital engineering and LTV optimization to
+              full-funnel marketing dominance.
+            </motion.p>
 
-      <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
-        Brands don’t grow  
-        <br />
-        by chance.
-        <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9d5cd1] to-[#4B1F6F]">
-          They grow by design.
-        </span>
-      </h1>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="mt-16 flex flex-col items-center"
+            ></motion.div>
+          </motion.div>
+        </div>
+      </section>
 
-      <p className="mt-8 max-w-xl text-lg text-gray-300">
-        Every case study is a story of strategy, creativity, and execution.
-        See how we’ve helped ambitious brands increase visibility,
-        conversions, and customer loyalty.
-      </p>
-
-      <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-        <button className="px-8 py-4 rounded-xl bg-[#4B1F6F] text-white font-semibold shadow-xl hover:bg-[#5d2a88] transition">
-          View Case Studies
-        </button>
-        <button className="px-8 py-4 rounded-xl border border-white/20 text-white hover:bg-white/10 transition">
-          Let’s Work Together
-        </button>
-      </div>
-    </motion.div>
-
-    {/* RIGHT: Brand collage */}
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1.2 }}
-      className="relative"
-    >
-      <div className="relative hidden lg:grid grid-cols-2 gap-4 rotate-3 ">
-        {[
-        { title: "Brand Campaign", name: "brand.jpg" },
-        { title: "E-commerce Growth", name: "ecomm.jpg" },
-        { title: "Brand Building", name: "brandBuilding.jpg" },
-        { title: "Marketing Website", name: "customer.jpg" },
-        ].map((obj) => (
-        <motion.div
-            key={obj.name}
-            whileHover={{ y: -8 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            className="group relative h-56 rounded-2xl overflow-hidden cursor-pointer border border-white/10 bg-white/5 backdrop-blur-xl shadow-xl"
-        >
-    {/* Image */}
-    <img
-      src={`/images/${obj.name}`}
-      alt={obj.title}
-      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-    />
-
-    {/* Dark overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-    {/* Glow */}
-    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-[radial-gradient(circle_at_bottom,_#9d5cd1_0%,transparent_70%)]" />
-
-    {/* Content */}
-    <div className="relative z-10 p-6 h-full flex flex-col justify-end">
-
-      <h3 className="text-xl font-bold text-white leading-tight">
-        {obj.title}
-      </h3>
-
-      <p className="mt-2 text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-500">
-        See how we helped this brand achieve measurable growth through strategy and design.
-      </p>
-    </div>
-  </motion.div>
-))}
-      </div>
-    </motion.div>
-
-  </div>
-</section>
-
-
-      {/* Grid Section */}
-      <section className="py-24 sm:py-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-              <h2 className="text-sm font-bold leading-7 text-[#652798] uppercase tracking-[0.2em]">
+      {/* GRID SECTION */}
+      <section className="relative z-10 py-32 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-12">
+            <div className="max-w-2xl">
+              <h2 className="text-xs font-black tracking-[0.5em] text-[#9d5cd1] uppercase mb-6">
                 Selected Projects
               </h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Featured Works
-              </p>
+              <h3 className="text-4xl md:text-6xl font-bold tracking-tighter text-black">
+                CRAFTING <br /> THE FUTURE.
+              </h3>
             </div>
-            <div className="flex gap-4">
-              <span className="text-sm font-medium text-gray-500">Showing {caseStudies.length} results</span>
+            <div className="flex items-center gap-4 text-gray-500">
+              <span className="text-4xl font-bold text-gray-500 tracking-tighter">
+                {caseStudy.length}
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-widest leading-none">
+                Global <br /> Deployments
+              </span>
             </div>
           </div>
 
-          <motion.div 
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.1
-                }
-              }
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {caseStudies.map((data, index) => (
+            {caseStudy.map((data, index) => (
               <motion.div
                 key={`${data.title}-${index}`}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0 }
-                }}
+                whileHover={{ y: -10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                onClick={() =>
+                  (window.location.href = `/case-studies/${data.id}`)
+                }
+                className="cursor-pointer"
               >
                 <PerspectiveCard {...data} />
               </motion.div>
@@ -216,25 +155,30 @@ function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-white border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+      {/* CTA SECTION */}
+      <section className="py-10 px-6 relative overflow-hidden bg-white ">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-5xl max-h-96  rounded-full" />
+
+        <div
+          className="max-w-6xl mx-auto text-center relative z-10 border  py-24 rounded-4xl bg-black"
+        >
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-[#4B1F6F] rounded-[3rem] p-12 md:p-20 relative overflow-hidden"
+            className="space-y-12"
           >
-            {/* Decoration */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/20 rounded-full -ml-32 -mb-32 blur-3xl" />
-            
-            <h2 className="relative z-10 text-3xl md:text-5xl font-bold text-white mb-8">
-              Ready to start your <br /> next success story?
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-white leading-none">
+              READY TO SCALE <br />
+              <span className="text-[#9d5cd1]">BEYOND LIMITS?</span>
             </h2>
-            <button className="relative z-10 px-10 py-4 bg-white text-[#4B1F6F] font-bold rounded-full hover:bg-gray-100 transition-all shadow-xl hover:scale-105">
-              Let&apos;s Work Together
+
+            <button
+              className="group relative px-12 py-6 bg-white text-[#0a0a0a] font-black text-sm tracking-widest uppercase rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95"
+              onClick={clickHandler}
+            >
+              <span className="relative z-10">Start Your Journey</span>
+              <div className="absolute inset-0 bg-[#9d5cd1] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             </button>
           </motion.div>
         </div>

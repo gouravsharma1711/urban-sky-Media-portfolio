@@ -1,33 +1,56 @@
 "use client";
-import React, { useRef } from "react";
-import { domAnimation ,LazyMotion, motion } from "framer-motion";
-import { FiArrowUpRight } from "react-icons/fi";
 
+import React, { useEffect, useState } from "react";
+import { LazyMotion, domAnimation, motion } from "framer-motion";
+import PageLoader from "../pageLoader/PageLoader.jsx";
 import { ContentSection, TextParallaxContent } from "./TextParallaxContent.jsx";
 
 function WhyUrbanSky() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <PageLoader />;
+
   return (
     <LazyMotion features={domAnimation}>
-    <div className="font-display pt-20 bg-gradient-to-br from-black via-[#2a103d] to-[#4B1F6F] ">
-      <section className="relative h-[70vh] flex flex-col items-center justify-center px-4 overflow-hidden">
-        
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="z-10 text-center"
-        >
-          <h1 className="text-5xl md:text-[12rem] font-bold tracking-tighter leading-none mb-6 text-white">
-            WHY <span className="text-[#4B1F6F]">URBAN SKY</span>?
-          </h1>
-          <p className="text-lg md:text-2xl text-white max-w-3xl mx-auto uppercase tracking-[0.2em] font-medium">
-            Redefining the horizon of Digital Engineering and Full Fledge marketing 
-          </p>
-        </motion.div>
-      </section>
+      <div className="font-display  bg-[#02050F] text-white">
 
-      <TextParallaxContent
+        {/* HERO */}
+        <section className="relative min-h-[100vh] flex items-center justify-center px-6 overflow-hidden">
+          {/* Glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,#4B1F6F_0%,transparent_55%)] opacity-40" />
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="relative z-10 max-w-5xl text-center"
+          >
+            <span className="inline-block mb-6 px-5 py-2 text-xs tracking-widest uppercase rounded-full bg-white/5 border border-white/10">
+              Why Urban Sky
+            </span>
+
+            <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold leading-tight">
+              Engineering Growth at the
+              <span className="block text-[#4B1F6F] mt-2">
+                Intersection of Tech & Influence
+              </span>
+            </h1>
+
+            <p className="mt-8 text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+              We don’t run campaigns. We build systems that scale brands, automate growth,
+              and turn attention into predictable revenue.
+            </p>
+          </motion.div>
+        </section>
+
+
+        {/* PARALLAX CONTENT (KEPT) */}
+        <TextParallaxContent
         imgUrl="/images/img1.jpg"
         subheading="DIGITAL Engineering "
         heading="Turn Attention Into Revenue."
@@ -60,65 +83,41 @@ function WhyUrbanSky() {
         />
       </TextParallaxContent>
 
-      <section className="py-24 px-4 bg-[#f8f9fa]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              <span className="text-4xl font-bold text-[#4B1F6F]">01</span>
-              <h3 className="text-2xl font-bold">Innovation First</h3>
-              <p className="text-neutral-600 leading-relaxed">We stay ahead of digital trends to ensure your brand never falls behind.</p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              <span className="text-4xl font-bold text-[#4B1F6F]">02</span>
-              <h3 className="text-2xl font-bold">Data Driven</h3>
-              <p className="text-neutral-600 leading-relaxed">Every creative decision is backed by analytics and market research.</p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              <span className="text-4xl font-bold text-[#4B1F6F]">03</span>
-              <h3 className="text-2xl font-bold">Client Obsessed</h3>
-              <p className="text-neutral-600 leading-relaxed">Your success is our only metric. We build long-term partnerships, not just campaigns.</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+        {/* CTA */}
+        <section className="py-28 px-6 bg-[#f7f6fb] text-[#0f0f14]">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto text-center"
+          >
+            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+              Ready to <span className="text-[#4B1F6F]">Elevate</span> Your Brand?
+            </h2>
 
-      <section className="py-24 px-4 text-center bg-white">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-4xl md:text-7xl font-bold tracking-tighter">
-            READY TO <span className="text-[#4B1F6F]">ELEVATE</span> YOUR BRAND?
-          </h2>
-          <p className="text-xl text-neutral-500 max-w-2xl mx-auto">
-            Let's create something extraordinary together. Join the ranks of brands that are redefining their industries.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <button className="bg-[#4B1F6F] text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-[#3b1856] transition-all duration-300 transform hover:scale-105">
-              Get Started Now
-            </button>
-            <button className="border-2 border-[#4B1F6F] text-[#4B1F6F] px-10 py-4 rounded-full text-lg font-bold hover:bg-[#4B1F6F] hover:text-white transition-all duration-300">
-              View Case Studies
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
+            <p className="mt-6 text-lg text-neutral-600 max-w-2xl mx-auto">
+              Let’s build systems that scale revenue, not just impressions.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                className="px-10 py-4 rounded-full bg-[#4B1F6F] text-white font-bold hover:bg-[#3b1856] transition"
+                onClick={() => (window.location.href = "/#contacts")}
+              >
+                Start a Project
+              </button>
+
+              <button
+                className="px-10 py-4 rounded-full border-2 border-[#4B1F6F] text-[#4B1F6F] font-bold hover:bg-[#4B1F6F] hover:text-white transition"
+                onClick={() => (window.location.href = "/case-studies")}
+              >
+                View Case Studies
+              </button>
+            </div>
+          </motion.div>
+        </section>
+      </div>
     </LazyMotion>
   );
 }

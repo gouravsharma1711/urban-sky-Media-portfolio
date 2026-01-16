@@ -5,9 +5,7 @@ import FlipLink from "../ui/text-effect-flipper";
 import {
   Instagram,
   Linkedin,
-  Youtube,
   Facebook,
-  AtSign
 } from "lucide-react";
 
 import ThreadsIcon from "@/components/icons/ThreadIcon.jsx";
@@ -36,12 +34,6 @@ const socials = [
 },
 {
   idx: 3,
-  name: "Threads",
-  href: "https://www.threads.net",
-  Icon: ThreadsIcon,
-},
-{
-  idx: 4,
   name: "Facebook",
   href: "https://www.facebook.com/profile.php?id=61586565003957",
   Icon: Facebook,

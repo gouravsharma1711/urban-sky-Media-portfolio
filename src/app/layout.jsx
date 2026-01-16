@@ -9,12 +9,15 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Urban Sky Media | Strategic Marketing & Digital Solutions",
   description: "Elevating brands through data-driven creativity and cutting-edge digital solutions.",
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
       <body className={`${inter.className} bg-white antialiased`}>
         <SmoothScroll>
           <NavBar />

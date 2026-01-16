@@ -1,7 +1,13 @@
-import React from 'react';
+"use client"
+import { useState,useEffect } from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
 
 function Footer() {
+    const [year, setYear] = useState(new Date().getFullYear());
+    useEffect(() => {
+        setYear(new Date().getFullYear());
+    }, []);
+
     return (
         <footer className="bg-white border-t border-gray-100">
             <div className="mx-auto w-full max-w-7xl px-6 py-12 lg:py-16">
@@ -41,7 +47,7 @@ function Footer() {
                 </div>
 
                 <p className="mt-5 p-5 text-xs flex flex-col justify-center items-center text-gray-500 border-t border-gray-100 ">
-                    © {new Date().getFullYear()} Urban Sky Media. All rights reserved.
+                    © {year} Urban Sky Media. All rights reserved.
                 </p>
             </div>
         </footer>
