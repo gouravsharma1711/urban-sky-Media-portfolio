@@ -1,121 +1,121 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { Users, Eye, Target, MousePointer2, TrendingUp } from "lucide-react";
+import { Users, Eye, Target, MousePointer2 } from "lucide-react";
 import Image from "next/image";
 import caseStudy from "@/utils/case-study";
-import PageLoader from '@/components/pageLoader/PageLoader.jsx'
+import PageLoader from "@/components/pageLoader/PageLoader.jsx";
 
-export default function CaseStudyPage({ params }) {
-  const [data, setData] = useState(undefined);
-  const [isLoading, setIsLoading] = useState(false);
-  const [metrics, setMatrics] = useState([]);
+/* ------------------ UTIL: Number Formatter ------------------ */
+const formatNumber = (num) => {
+  if (!num && num !== 0) return "0";
+  if (num >= 1_000_000_000) return `${(num / 1_000_000_000).toFixed(1)}B`;
+  if (num >= 1_000_000) return `${(num / 1_000_000).toFixed(1)}M`;
+  if (num >= 1_000) return `${(num / 1_000).toFixed(1)}K`;
+  return num.toString();
+};
+
+export default function CaseStudyPage() {
   const { id } = useParams();
+  const [data, setData] = useState(null);
 
+  /* ------------------ DATA FETCH (SYNC, FAST) ------------------ */
   useEffect(() => {
     if (!id) return;
-    setIsLoading(true);
-    try {
-      const caseStudyId = id;
-      const currCaseStudy = caseStudy.filter((item) => item.id == caseStudyId);
-
-      if (currCaseStudy[0]) {
-        setData(currCaseStudy[0]);
-
-        setMatrics([
-          {
-            label: "Influencers",
-            value: currCaseStudy[0].keyMetrics.influencers,
-            icon: Users,
-          },
-          {
-            label: "Reach",
-            value: currCaseStudy[0].keyMetrics.reach,
-            icon: Target,
-          },
-          {
-            label: "Impressions",
-            value: currCaseStudy[0].keyMetrics.impressions,
-            icon: Eye,
-          },
-          {
-            label: "Engagements",
-            value: currCaseStudy[0].keyMetrics.engagements,
-            icon: MousePointer2,
-          },
-        ]);
-      }
-    } catch (error) {
-      console.log("Error : ", error);
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000);
-    }
+    const result = caseStudy.find((item) => item.id === id);
+    setData(result || null);
   }, [id]);
 
-  if (isLoading || !data) {
-    return <PageLoader />;
-  }
+  /* ------------------ MEMOIZED METRICS ------------------ */
+  const metrics = useMemo(() => {
+    if (!data?.keyMetrics) return [];
+    return [
+      {
+        label: "Influencers",
+        value: formatNumber(data.keyMetrics.influencers),
+        icon: Users,
+      },
+      {
+        label: "Reach",
+        value: formatNumber(data.keyMetrics.reach),
+        icon: Target,
+      },
+      {
+        label: "Impressions",
+        value: formatNumber(data.keyMetrics.impressions),
+        icon: Eye,
+      },
+      {
+        label: "Engagements",
+        value: formatNumber(data.keyMetrics.engagements),
+        icon: MousePointer2,
+      },
+    ];
+  }, [data]);
+
+  if (!data) return <PageLoader />;
 
   return (
-    <main className="bg-gray-100 text-white ">
-      {/* HERO */}
-      <section className="relative mb-36">
+    <main className="bg-gray-100 text-white">
+      {/* ---------------- HERO ---------------- */}
+      <section className="relative mb-24">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src={data?.image || ""}
+            src={data.image}
             alt="Case study image"
             fill
-            className="object-cover"
             priority
+            sizes="(max-width: 768px) 100vw, 1200px"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative max-w-7xl mx-auto px-6 pt-32 pb-30">
+        <div className="relative max-w-7xl mx-auto px-6 pt-28 md:pt-32 pb-48">
+          {/* 👆 IMPORTANT: pb-48 reserves space for stats card */}
+
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-6 px-5 py-2 rounded-full bg-black/60 text-xs tracking-widest uppercase text-white"
+            className="inline-block mb-5 px-5 py-2 rounded-full bg-black/60 text-xs tracking-widest uppercase text-white"
           >
-            {data?.industry || "No Data"}
+            {data.industry}
           </motion.span>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="max-w-5xl text-4xl md:text-6xl xl:text-7xl font-extrabold leading-tight text-white"
+            transition={{ duration: 0.4 }}
+            className="max-w-4xl text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-extrabold leading-tight text-white"
           >
-            {data?.title || "No Title"}
+            {data.title}
           </motion.h1>
-
-          <p className="mt-8 max-w-2xl text-gray-200 text-lg">
-            A data-driven influencer marketing campaign designed to scale trust,
-            visibility, and engagement at a national level.
-          </p>
         </div>
 
-        {/* Stats Bar */}
-        <div className="absolute bottom-0 inset-x-0 z-20">
+        {/* ---------------- STATS CARD ---------------- */}
+        <div className="absolute left-0 right-0 bottom-0 translate-y-1/2 z-20">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-white rounded-3xl p-8 shadow-xl translate-y-1/2">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 bg-white rounded-3xl p-6 md:p-8 shadow-xl">
               {metrics.map((m, i) => {
                 const Icon = m.icon;
                 return (
                   <motion.div
                     key={i}
                     whileHover={{ y: -4 }}
+                    transition={{ type: "spring", stiffness: 300 }}
                     className="text-center"
                   >
-                    <Icon className="mx-auto w-6 h-6 text-[#4B1F6F] mb-3" />
-                    <p className="text-3xl font-bold text-black">{m.value}</p>
-                    <p className="text-sm text-gray-500">{m.label}</p>
+                    <Icon className="mx-auto w-5 md:w-6 h-5 md:h-6 text-[#4B1F6F] mb-2 md:mb-3" />
+                    <p className="text-xl md:text-3xl font-bold text-black">
+                      {m.value}
+                    </p>
+                    <p className="text-xs md:text-sm text-gray-500">
+                      {m.label}
+                    </p>
                   </motion.div>
                 );
               })}
@@ -123,80 +123,59 @@ export default function CaseStudyPage({ params }) {
           </div>
         </div>
 
-        {/* Bottom Blur Fade */}
+        {/* Fade */}
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-[#f7f6fb]" />
       </section>
 
-      {/* OVERVIEW */}
+      {/* ---------------- OVERVIEW ---------------- */}
       <section className="bg-[#f7f6fb] text-[#111]">
-        {/* Summar Section */}
-        <section className="relative max-w-6xl mx-auto px-6 py-5">
+        {/* Summary */}
+        <section className="max-w-6xl mx-auto px-6 py-8">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative  bg-white p-12 md:p-16 shadow-sm"
+            className="relative bg-white p-8 md:p-16 shadow-sm"
           >
-            {/* Accent Line */}
-            <div className="absolute top-0 left-0 h-full w-1 bg-[#4B1F6F] rounded-full" />
+            <div className="absolute top-0 left-0 h-full w-1 bg-[#4B1F6F]" />
 
-            {/* Section Label */}
             <span className="block mb-6 text-xs font-semibold tracking-widest uppercase text-[#4B1F6F]">
               Summary
             </span>
 
-            {/* Heading */}
-            <h2 className="max-w-3xl text-3xl pb-6 border-b-2 border-gray-200 md:text-4xl font-bold leading-tight text-[#0f0f14]">
-              {data?.title || "No Data"}
+            <h2 className="text-2xl md:text-4xl font-bold pb-6 border-b">
+              {data.title}
             </h2>
 
-            {/* Content */}
-            <div className="mt-10 space-y-6 max-w-4xl text-lg leading-relaxed text-gray-600">
-              {data?.summarySection?.content?.length ? (
-                data.summarySection.content.map((point, idx) => (
-                  <p key={idx}>{point}</p>
-                ))
-              ) : (
-                <p>No Data</p>
-              )}
+            <div className="mt-8 space-y-6 text-gray-600 text-base md:text-lg">
+              {data.summarySection?.content?.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </motion.div>
         </section>
 
-        {/* CONTENT SECTIONS */}
-        <div className="max-w-6xl mx-auto px-6 pb-28 space-y-20">
-          {data?.subHeading?.length ? (
-            data.subHeading.map((section, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="border-none "
-              >
-                <h2 className="text-2xl md:text-3xl font-semibold text-[#4B1F6F] mb-8">
-                  {section?.heading ?? "No Data"}
-                </h2>
+        {/* Content Sections */}
+        <div className="max-w-6xl mx-auto px-6 pb-24 space-y-16">
+          {data.subHeading?.map((section, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-xl md:text-3xl font-semibold text-[#4B1F6F] mb-6">
+                {section.heading}
+              </h2>
 
-                <ul className="space-y-5 text-gray-600 text-lg leading-relaxed">
-                  {section.points?.length ? (
-                    section.points.map((point, idx) => (
-                      <li key={idx} className="flex gap-4">
-                        {point}
-                      </li>
-                    ))
-                  ) : (
-                    <li>No Data</li>
-                  )}
-                </ul>
-              </motion.div>
-            ))
-          ) : (
-            <h1>No Data</h1>
-          )}
+              <ul className="space-y-4 text-gray-600 text-base md:text-lg">
+                {section.points?.map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
-
       </section>
     </main>
   );

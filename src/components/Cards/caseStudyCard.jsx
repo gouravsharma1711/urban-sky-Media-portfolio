@@ -6,11 +6,13 @@ export default function PerspectiveCard({
   alt,
   title,
   industry,
-  summarySection
+  summarySection,
+  id
 }) {
   return (
     <motion.div
       whileHover={{ y: -5 }}
+      onClick={()=>window.location.href=`/case-studies/${id}`}
       className="group relative w-full bg-white overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 will-change-transform transform-gpu"
     >
       {/* Image Container */}

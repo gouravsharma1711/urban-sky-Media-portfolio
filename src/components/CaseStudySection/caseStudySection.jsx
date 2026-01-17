@@ -27,7 +27,7 @@ function CaseStudySection() {
             </p>
           </div>
           <button
-            className="hidden md:block px-8 py-3 rounded-full border border-gray-200 bg-white text-gray-900 font-bold hover:border-primary-500 hover:text-primary-600 transition-all"
+            className="hidden md:block px-8 py-3 rounded-full border border-gray-200 bg-white text-gray-900 font-bold hover:border-[#4B1F6F] hover:text-primary-600 transition-all"
             onClick={buttonHandler}
           >
             View All Projects
