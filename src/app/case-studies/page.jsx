@@ -24,6 +24,7 @@ function CaseStudiesPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1200);
+    
     return () => clearTimeout(timer);
   }, []);
 
