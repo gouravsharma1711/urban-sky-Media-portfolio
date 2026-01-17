@@ -5,11 +5,7 @@ import { teamMembers } from "@/utils/team.js";
 import PageLoader from "@/components/pageLoader/PageLoader.jsx";
 
 
-export function generateStaticParams() {
-  return teamMembers.map((member) => ({
-    id: member.id.toString(),
-  }));
-}
+
 
 function Page({ params }) {
   const [user, setUser] = useState(undefined);

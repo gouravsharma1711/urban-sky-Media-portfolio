@@ -6,11 +6,7 @@ import PerspectiveCard from "@/components/Cards/caseStudyCard.jsx";
 import caseStudy from "@/utils/case-study";
 import PageLoader from "@/components/pageLoader/PageLoader";
 
-export function generateStaticParams() {
-  return caseStudy.map((item) => ({
-    id: item.id.toString(),
-  }));
-}
+
 
 const images = [
   "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg",
