@@ -6,6 +6,12 @@ import PerspectiveCard from "@/components/Cards/caseStudyCard.jsx";
 import caseStudy from "@/utils/case-study";
 import PageLoader from "@/components/pageLoader/PageLoader";
 
+export function generateStaticParams() {
+  return caseStudy.map((item) => ({
+    id: item.id.toString(),
+  }));
+}
+
 const images = [
   "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg",
   "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg",
@@ -24,7 +30,7 @@ function CaseStudiesPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1200);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
