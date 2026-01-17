@@ -15,7 +15,7 @@ function Footer() {
                     <div className="col-span-2 lg:col-span-2">
                         <a href="/#" className="flex items-center gap-2 mb-6">
                             <div className="w-8 h-8  rounded flex items-center justify-center">
-                                <img src='/images/logo.jpg'></img>
+                                <img src='/images/logo-optimized.png'></img>
                             </div>
                             <span className="text-xl font-bold tracking-tight text-[#4B1F6F]">
                                 Urban Sky Media

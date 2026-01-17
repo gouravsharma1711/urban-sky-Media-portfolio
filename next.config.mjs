@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactCompiler: true,
   reactStrictMode: true,
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -8,14 +7,10 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
   },
-  experimental: {
-    optimizeCss: true,
-  },
   
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  output: 'export'
 };
 
 export default nextConfig;
