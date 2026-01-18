@@ -50,7 +50,7 @@ function CaseStudySection() {
         </motion.div>
 
         <div className="mt-12 text-center md:hidden">
-          <button className="w-full px-8 py-4 rounded-xl border border-gray-200 bg-white text-gray-900 font-bold">
+          <button className="w-full px-8 py-4 rounded-xl border border-gray-200 bg-white text-gray-900 font-bold" onClick={buttonHandler}>
             View All Projects
           </button>
         </div>

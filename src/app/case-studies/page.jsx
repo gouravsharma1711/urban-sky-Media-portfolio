@@ -87,15 +87,6 @@ export default function CaseStudiesPage() {
               transition={{ duration: 0.9, ease: "easeOut" }}
               className="flex flex-col items-center"
             >
-              {/* Badge */}
-              <span
-                className="mb-6 px-5 py-2 text-[10px] font-black tracking-[0.35em] uppercase rounded-full
-          text-white/90 border border-white/20
-          bg-white/10 backdrop-blur-md"
-              >
-                Portfolio & Success Stories
-              </span>
-
               {/* Headline */}
               <h1
                 className="text-[2.4rem] sm:text-4xl md:text-7xl xl:text-8xl font-extrabold leading-[1.05]
@@ -103,8 +94,7 @@ export default function CaseStudiesPage() {
               >
                 Brands don&apos;t grow.
                 <span
-                  className="block mt-2 bg-clip-text text-transparent
-            bg-gradient-to-r from-[#C084FC] via-[#9D5CD1] to-[#4B1F6F]"
+                  className="block mt-2 bg-clip-text text-transparent bg-white"
                 >
                   They scale exponentially.
                 </span>
@@ -133,12 +123,6 @@ export default function CaseStudiesPage() {
               </button>
 
               {/* Mobile Scroll Cue */}
-              <div className="mt-14 flex flex-col items-center md:hidden opacity-70">
-                <span className="text-[10px] tracking-widest uppercase text-white/60">
-                  Scroll
-                </span>
-                <div className="mt-2 w-px h-10 bg-gradient-to-b from-white/60 to-transparent" />
-              </div>
             </motion.div>
           </div>
         </div>
@@ -146,6 +130,7 @@ export default function CaseStudiesPage() {
 
       {/* ---------------- GRID ---------------- */}
       <section className="relative z-10 py-28 px-6 bg-white">
+        <h1 >Case Studies </h1>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 32 }}

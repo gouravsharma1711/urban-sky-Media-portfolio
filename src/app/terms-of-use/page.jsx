@@ -2,10 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck } from "lucide-react";
-import privacyPolicy from "@/utils/privacyPolicy";
+import { Gavel } from "lucide-react";
+import termsOfService from "@/utils/termsOfService";
 
-export default function PrivacyPolicyPage() {
+export default function TermsOfServicePage() {
   return (
     <main className="bg-white text-gray-900">
       {/* HERO */}
@@ -17,16 +17,16 @@ export default function PrivacyPolicyPage() {
             transition={{ duration: 0.4 }}
             className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/90 text-gray-800 text-xs font-medium uppercase tracking-wide"
           >
-            <ShieldCheck size={14} />
-            Privacy & Terms
+            <Gavel size={14} />
+            Legal Agreement
           </motion.div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {privacyPolicy.title}
+            {termsOfService.title}
           </h1>
 
           <p className="text-gray-400 text-sm sm:text-base">
-            Last updated: {privacyPolicy.lastUpdated}
+            Last updated: {termsOfService.lastUpdated}
           </p>
         </div>
       </section>
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
       {/* CONTENT */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="space-y-14 sm:space-y-16">
-          {privacyPolicy.sections.map((section) => (
+          {termsOfService.sections.map((section) => (
             <motion.article
               key={section.id}
               initial={{ opacity: 0, y: 16 }}
@@ -60,19 +60,19 @@ export default function PrivacyPolicyPage() {
       <section className="border-t border-gray-100 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4">
-            Questions about privacy?
+            Need clarification?
           </h3>
 
           <p className="text-gray-600 mb-6 max-w-xl mx-auto text-sm sm:text-base">
-            If you have any questions about these terms or how we handle data,
-            feel free to reach out to us.
+            If you have any questions about these Terms of Service or need legal
+            clarification, please contact us.
           </p>
 
           <a
-            href="mailto:contact@urbanskymedia.in"
+            href="mailto:legal@urbanskymedia.com"
             className="inline-block font-medium text-[#4B1F6F] hover:underline break-all sm:break-normal"
           >
-            contact@urbanskymedia.in
+            legal@urbanskymedia.com
           </a>
         </div>
       </section>

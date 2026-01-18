@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar.jsx";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import "./global.css";
+import { Toaster } from "react-hot-toast";
 
 // Optimize Inter font loading
 const inter = Inter({
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
         <SmoothScroll>
           <NavBar />
           <main>{children}</main>
+          <Toaster position="top-right" reverseOrder={false} />
           <Footer />
         </SmoothScroll>
       </body>

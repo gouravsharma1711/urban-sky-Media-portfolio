@@ -30,7 +30,7 @@ function Page({ params }) {
 
       setTimeout(() => {
         setLoading(false);
-      }, 2000);
+      }, 1200);
     }
   }, [id]);
 
