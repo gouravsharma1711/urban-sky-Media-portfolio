@@ -93,9 +93,7 @@ export default function CaseStudiesPage() {
           text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]"
               >
                 Brands don&apos;t grow.
-                <span
-                  className="block mt-2 bg-clip-text text-transparent bg-white"
-                >
+                <span className="block mt-2 bg-clip-text text-transparent bg-white">
                   They scale exponentially.
                 </span>
               </h1>
@@ -115,9 +113,9 @@ export default function CaseStudiesPage() {
               <button
                 onClick={clickHandler}
                 className="mt-10 z-12 px-10 py-4 rounded-full
-          bg-white text-black font-black text-xs tracking-widest uppercase
+          text-white font-black text-xs tracking-widest uppercase
           transition-all hover:scale-105 active:scale-95
-          shadow-[0_10px_40px_rgba(0,0,0,0.35)]"
+          shadow-[0_10px_40px_rgba(0,0,0,0.35)] bg-[#4B1F6F]"
               >
                 Start Your Journey
               </button>
@@ -130,7 +128,10 @@ export default function CaseStudiesPage() {
 
       {/* ---------------- GRID ---------------- */}
       <section className="relative z-10 py-28 px-6 bg-white">
-        <h1 >Case Studies </h1>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center py-10 text-gray-900">
+          Case <span className="text-[#4B1F6F]">Studies</span>
+        </h1>
+
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 32 }}

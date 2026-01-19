@@ -30,30 +30,39 @@ export default function CaseStudyPage() {
 
   /* ------------------ MEMOIZED METRICS ------------------ */
   const metrics = useMemo(() => {
-    if (!data?.keyMetrics) return [];
-    return [
-      {
-        label: "Influencers",
-        value: formatNumber(data.keyMetrics.influencers),
-        icon: Users,
-      },
-      {
-        label: "Reach",
-        value: formatNumber(data.keyMetrics.reach),
-        icon: Target,
-      },
-      {
-        label: "Impressions",
-        value: formatNumber(data.keyMetrics.impressions),
-        icon: Eye,
-      },
-      {
-        label: "Engagements",
-        value: formatNumber(data.keyMetrics.engagements),
-        icon: MousePointer2,
-      },
-    ];
-  }, [data]);
+  if (!data?.keyMetrics) return [];
+
+  const rawMetrics = [
+    {
+      label: "Influencers",
+      raw: data.keyMetrics.influencers,
+      icon: Users,
+    },
+    {
+      label: "Reach",
+      raw: data.keyMetrics.reach,
+      icon: Target,
+    },
+    {
+      label: "Impressions",
+      raw: data.keyMetrics.impressions,
+      icon: Eye,
+    },
+    {
+      label: "Engagements",
+      raw: data.keyMetrics.engagements,
+      icon: MousePointer2,
+    },
+  ];
+
+  // ✅ remove zero / null / undefined values
+  return rawMetrics
+    .filter((m) => typeof m.raw === "number" && m.raw > 0)
+    .map((m) => ({
+      ...m,
+      value: formatNumber(m.raw),
+    }));
+}, [data]);
 
   if (!data) return <PageLoader />;
 
@@ -97,7 +106,9 @@ export default function CaseStudyPage() {
         </div>
 
         {/* ---------------- STATS CARD ---------------- */}
-        <div className="absolute left-0 right-0 bottom-0 translate-y-1/2 z-20">
+        {metrics.length > 0 && (
+  <div className="absolute left-0 right-0 bottom-0 translate-y-1/2 z-20">
+
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 bg-white rounded-3xl p-6 md:p-8 shadow-xl">
               {metrics.map((m, i) => {
@@ -121,7 +132,8 @@ export default function CaseStudyPage() {
               })}
             </div>
           </div>
-        </div>
+          </div>
+)}
 
         {/* Fade */}
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-[#f7f6fb]" />
