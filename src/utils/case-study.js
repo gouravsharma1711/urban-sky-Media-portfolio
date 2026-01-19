@@ -19,7 +19,7 @@ const caseStudy = [
         'These results align with broader industry trends, where 81% of brands in India report positive returns from influencer marketing, positioning this campaign as a strong example of high-ROI digital brand building'
       ]
     },
-    image: '/images/img4.jpg',
+    image: '/images/beauty3.jpeg',
     subHeading: [
       {
         heading: 'Key Performance Highlights',
@@ -83,7 +83,7 @@ const caseStudy = [
         'This case study examines the campaign architecture, strategic execution, performance outcomes, and underlying principles that enabled the brand to achieve results that significantly outpace industry benchmarks while maintaining authentic consumer connections.'
       ]
     },
-    image: '/images/profile.jpg',
+    image: '/images/fmcg3.jpg',
     subHeading: [
       {
         heading: 'Key Performance Highlights',
@@ -143,7 +143,7 @@ const caseStudy = [
         'The final results validate that a high-volume, decentralized creator strategy is the most effective way to build trust at scale across a geographically diverse market like India.'
       ]
     },
-    image: '/images/img4.jpg',
+    image: '/images/health1.webp',
     subHeading: [
       {
         heading: 'Campaign Architecture & Influencer Network',
@@ -185,7 +185,7 @@ const caseStudy = [
         'Over 18 months, the company successfully bridged the digital divide, transforming legacy operations into streamlined, data-driven organizations.'
       ]
     },
-    image: '/images/img4.jpg',
+    image: '/images/sme2.png',
     subHeading: [
       {
         heading: 'The Challenge: Fragmented Systems',
@@ -227,7 +227,7 @@ const caseStudy = [
         'notably, emerging markets—led by India—are growing at disproportionate rates as laboratories for mobile-first performance marketing.'
       ]
     },
-    image: '/images/img4.jpg',
+    image: '/images/globe1.webp',
     subHeading: [
       {
         heading: 'The Paradox: Slowdown vs. Growth',
@@ -267,7 +267,7 @@ const caseStudy = [
         'Growth was achieved profitably, maintaining a 28% gross margin while scaling 3x faster than the industry average.'
       ]
     },
-    image: '/images/img4.jpg',
+    image: '/images/lifestyle.jpg',
     subHeading: [
       {
         heading: 'Strategic Lever 1: Consumer Intelligence',
@@ -307,7 +307,7 @@ const caseStudy = [
         'cross-platform reinforcement is the new baseline for building robust and trustworthy brand memory.'
       ]
     },
-    image: '/images/img4.jpg',
+    image: '/images/plat.jpg',
     subHeading: [
       {
         heading: 'The 18% Attention Lift: Why Diversification Delivers',
@@ -347,7 +347,7 @@ const caseStudy = [
         'This proves that localized infrastructure and creator networks are far more valuable than underlying base technology in emerging markets.'
       ]
     },
-    image: '/images/img4.jpg',
+    image: '/images/livestream.jpg',
     subHeading: [
       {
         heading: 'Phase 1 & 2: YouTube Domination',
