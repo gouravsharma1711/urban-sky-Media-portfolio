@@ -51,7 +51,7 @@ function WhyUrbanSky() {
 
         {/* PARALLAX CONTENT (KEPT) */}
         <TextParallaxContent
-        imgUrl="/images/img1.jpg"
+        imgUrl="/images/ai.jpeg"
         subheading="DIGITAL Engineering "
         heading="Turn Attention Into Revenue."
       >
@@ -62,7 +62,7 @@ function WhyUrbanSky() {
       </TextParallaxContent>
 
       <TextParallaxContent
-        imgUrl="/images/brandBuilding.jpg"
+        imgUrl="/images/lifetime.jpeg"
         subheading="Lifetime Growth"
         heading="Build Growth That Never Slows Down"
       >
@@ -73,7 +73,7 @@ function WhyUrbanSky() {
       </TextParallaxContent>
 
       <TextParallaxContent
-        imgUrl="/images/img2.jpg"
+        imgUrl="/images/full_fledge.jpeg"
         subheading="Full Fledge Marketing "
         heading="We Influence People for you "
       >

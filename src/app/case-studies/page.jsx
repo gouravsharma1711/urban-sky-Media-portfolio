@@ -6,9 +6,9 @@ import Image from "next/image";
 import PerspectiveCard from "@/components/Cards/caseStudyCard.jsx";
 import caseStudy from "@/utils/case-study";
 
+// "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg",
+// "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg",
 const images = [
-  "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg",
-  "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg",
   "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
   "https://images.pexels.com/photos/3182765/pexels-photo-3182765.jpeg",
   "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg",

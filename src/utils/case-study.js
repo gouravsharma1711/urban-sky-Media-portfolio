@@ -19,7 +19,7 @@ const caseStudy = [
         "These results align with broader industry trends, where 81% of brands in India report positive returns from influencer marketing, positioning this campaign as a strong example of high-ROI digital brand building",
       ],
     },
-    image: "/images/beauty3.jpeg",
+    image: "/images/1.jpeg",
     subHeading: [
       {
         heading: "Key Performance Highlights",
@@ -83,7 +83,7 @@ const caseStudy = [
         "This case study examines the campaign architecture, strategic execution, performance outcomes, and underlying principles that enabled the brand to achieve results that significantly outpace industry benchmarks while maintaining authentic consumer connections.",
       ],
     },
-    image: "/images/fmcg3.jpg",
+    image: "/images/full_fledge2.jpeg",
     subHeading: [
       {
         heading: "Key Performance Highlights",
@@ -186,7 +186,7 @@ const caseStudy = [
         "Over an 18-month execution window, the initiative successfully transitioned multiple SMEs from reactive, labor-heavy operations into structured, technology-enabled organizations. By leveraging AI for creative production, lead qualification, performance analysis, and customer engagement, businesses achieved significant efficiency gains while improving conversion quality. Most importantly, the transformation created operational leverage: founders could scale customer acquisition, revenue, and retention without hiring proportionally larger teams. The result was not only improved marketing performance, but a fundamental shift in how Indian SMEs approached growth, technology adoption, and strategic execution.",
       ],
     },
-    image: "/images/sme2.png",
+    image: "/images/ai2.jpeg",
     subHeading: [
       {
         heading: "Market Context and Structural Challenges in Indian SMEs",
@@ -274,7 +274,7 @@ const caseStudy = [
         "The transformation focused on identifying high-value consumer segments, diversifying acquisition channels, and strengthening post-purchase engagement. By leveraging first-party data across web, social, and marketplace touchpoints, the team uncovered clear patterns in geography, behavior, and lifetime value. These insights informed budget reallocation, creative strategy, and channel prioritization. Simultaneously, automation across WhatsApp, email, and CRM systems reduced manual workload while improving customer experience. Within 12 months, the brand achieved a 10x revenue increase, scaling to ₹5 crore while maintaining healthy gross margins and significantly improving customer loyalty metrics.",
       ],
     },
-    image: "/images/lifestyle.jpg",
+    image: "/images/d2c.jpeg",
     subHeading: [
       {
         heading: "Consumer Intelligence as the Primary Growth Lever",
@@ -311,7 +311,7 @@ const caseStudy = [
         "The implications for marketers are profound. Platform diversification is no longer an optimization tactic—it is a baseline requirement for algorithmic resilience, risk mitigation, and sustained growth. Brands that continue to over-index on a single platform expose themselves to algorithm changes, policy shifts, and audience saturation. In contrast, multi-platform strategies create redundancy, optionality, and compounding performance effects. This case study outlines why diversification works, how creator ecosystems are evolving in response, and what strategic shifts are required to succeed in a permanently fragmented attention economy.",
       ],
     },
-    image: "/images/plat.jpg",
+    image: "/images/image.jpeg",
     subHeading: [
       {
         heading: "The 18% Attention Lift: Why Diversification Works",
